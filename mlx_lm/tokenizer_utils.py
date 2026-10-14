@@ -220,8 +220,8 @@ class BPEStreamingDetokenizer(StreamingDetokenizer):
         byte_decoder = _byte_decoder()
         barr = bytearray()
         for c in seq:
-            res = byte_decoder.get(c, False)
-            if res:
+            res = byte_decoder.get(c)
+            if res is not None:
                 barr.append(res)
             else:
                 barr.extend(bytes(c, "utf-8"))

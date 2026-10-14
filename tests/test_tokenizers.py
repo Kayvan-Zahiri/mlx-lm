@@ -50,6 +50,9 @@ class TestTokenizers(unittest.TestCase):
         tokens = tokenizer.encode("hello\nworld")
         check(tokens)
 
+        tokens = tokenizer.encode("a\x00b")
+        check(tokens)
+
     def test_tokenizers(self):
         tokenizer_repos = [
             ("mlx-community/Qwen1.5-0.5B-Chat-4bit", BPEStreamingDetokenizer),
